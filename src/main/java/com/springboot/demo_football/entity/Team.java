@@ -26,4 +26,7 @@ public class Team {
         this.name = name;
         players = new LinkedList<>();
     }
+    public void addPlayer(Player player){
+        players.add(player);
+    }
 }

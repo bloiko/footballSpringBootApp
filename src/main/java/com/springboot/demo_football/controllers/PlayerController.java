@@ -34,7 +34,7 @@ public class PlayerController {
         playerService.deletePlayer(playerId);
         return "redirect:/players/list";
     }
-    @GetMapping("/showFormForAdd")
+    @GetMapping("/showFormForAddPlayer")
     public String showFormForAddPlayer(Model model){
         List<Team> teams = teamService.getTeams();
         model.addAttribute("teams",teams);

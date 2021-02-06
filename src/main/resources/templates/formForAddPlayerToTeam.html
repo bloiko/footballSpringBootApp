@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css"
+          integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
+    <title>Title</title>
+    <style type="text/css">
+        label {
+            display: inline-block;
+            width: 100px;
+            margin: 5px;
+            text-align: left;
+        }
+
+        input[type=text], input[type=password], select {
+            display: inline-block;
+            width: 200px;
+        }
+
+        button {
+            padding: 5px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div align="center" margin="auto">
+    <h1>User Registration</h1>
+    <form action="#" th:action="@{/team/addPlayer(teamId=${team.id})}" method="post" th:object="${player}">
+        <label>First name:</label>
+        <input type="text" th:field="*{firstName}"/><br/>
+
+        <label>Last name:</label>
+        <input type="text" th:field="*{lastName}"/><br/>
+
+        <!--        <label>Team:</label>-->
+        <!--        <input type="text" th:field="*{team.name}"/><br/>-->
+        <label>Team:</label>
+        <select th:field="*{team.name}">
+            <option  th:value="${team.getName()}" th:text="${team.getName()}">
+            </option>
+        </select><br/>
+        <button type="submit" class="badge badge-dark">Register</button>
+    </form>
+</div>
+</body>
+</html>
